@@ -54,6 +54,11 @@ GEM
       activemodel (>= 4.1, < 7.1)
       case_transform (>= 0.2)
       jsonapi-renderer (>= 0.1.1.beta1, < 0.3)
+    active_storage_validations (1.0.4)
+      activejob (>= 5.2.0)
+      activemodel (>= 5.2.0)
+      activestorage (>= 5.2.0)
+      activesupport (>= 5.2.0)
     activejob (7.0.6)
       activesupport (= 7.0.6)
       globalid (>= 0.3.6)
@@ -121,6 +126,7 @@ GEM
       railties (>= 5.0.0)
     faker (3.2.0)
       i18n (>= 1.8.11, < 2)
+    fastimage (2.2.7)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.14.1)
@@ -152,6 +158,7 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
+    mini_magick (4.12.0)
     mini_mime (1.1.2)
     minitest (5.18.1)
     msgpack (1.7.2)
@@ -298,6 +305,7 @@ PLATFORMS
 DEPENDENCIES
   active_interaction
   active_model_serializers (~> 0.10.2)
+  active_storage_validations
   apipie-rails (~> 1.2, >= 1.2.1)
   bootsnap
   capybara
@@ -306,9 +314,11 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails
   faker
+  fastimage
   importmap-rails
   interactor-rails
   jbuilder
+  mini_magick
   pg (~> 1.5, >= 1.5.3)
   puma (~> 5.0)
   rails (~> 7.0.6)

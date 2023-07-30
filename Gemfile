@@ -19,7 +19,9 @@ gem 'apipie-rails', '~> 1.2', '>= 1.2.1'
 gem 'active_model_serializers', '~> 0.10.2'
 gem 'active_interaction'
 gem 'interactor-rails'
-
+gem 'active_storage_validations'
+gem 'fastimage'
+gem 'mini_magick'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"

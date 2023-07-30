@@ -16,4 +16,37 @@ class User < ApplicationRecord
       errors.add(:date_of_birth, "cannot be in future")
     end
   end
+
+  has_one_attached :avatar
+  # validate :avatar_content_type, :avatar_size, :avatar_dimension
+
+  # private
+
+  # def avatar_content_type
+  #   if avatar.attached? && !avatar.content_type.in?(%w(image/jpeg image/png))
+  #     errors.add(:base, 'Avatar must be a JPEG or PNG image')
+  #   end
+  # end
+
+  # def avatar_size
+  #   if avatar.attached? && avatar.blob.byte_size > 10.megabytes
+  #     errors.add(:base, 'Avatar size must be less than 10 megabytes')
+  #   end
+  # end
+
+  # def avatar_dimension
+  #   if avatar.attached? && avatar.variable?
+  #     begin
+  #       variant = avatar.variant(resize_to_limit: [1600, 1200])
+  #       if variant.processed.width > 1600 || variant.processed.height > 1200
+  #         errors.add(:base, 'Avatar dimensions cannot exceed 1600x1200 pixels')
+  #       end
+  #     rescue => e
+  #       errors.add(:base, 'Error processing avatar')
+  #       # Variant does not exist or encountered an error during generation
+  #     end
+  #   end
+  # end
+  
+  
 end

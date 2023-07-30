@@ -1,7 +1,14 @@
 <nav class="navbar bg-dark border-bottom border-bottom-dark" data-bs-theme="dark"">
   <div class="container-fluid">
     <a class="navbar-brand">Navbar</a>
-    <%= link_to "Sign up", new_user_registration_path %>
-    <%= button_to "Sign in", new_user_session_path %>
+    <%if !user_signed_in?%>
+      <%= link_to "Sign up", new_user_registration_path %>
+      <%= button_to "Sign in", new_user_session_path %>
+    <%elsif !current_user.avatar.attached?%>
+      <img src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" class="rounded-circle shadow-4"
+    style="width: 50px;" alt="Avatar" />
+    <%else%>
+      <%= image_tag url_for(current_user.avatar), style: "width: 50px; height: 50px; border-radius: 50%" %>
+  <%end%>
   </div>
 </nav>

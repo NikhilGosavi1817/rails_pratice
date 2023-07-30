@@ -1,0 +1,24 @@
+<%= render "devise/shared/header" %>
+
+<% if current_user.avatar.attached? %>
+  <%= image_tag url_for(current_user.avatar), style: "width: 200px; height: 200px;" %>
+  <%= button_to "Delete Avatar", avatar_path(current_user), method: :delete, data: { confirm: 'Are you sure you want to delete your avatar?' } %>
+<% end %>
+
+<%= form_for(:avatar, url: avatar_path(current_user), html: { method: :put }) do |f| %>
+  <% if current_user.errors[:avatar].any? %>
+    <ul>
+      <% current_user.errors[:avatar].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div class="field">
+    <%= f.file_field :avatar %>
+  </div>
+  <br>
+  <div class="action">
+    <%= f.submit "Save"  %>
+  </div>  
+  <%= link_to "Back to Home", root_path, class: "home-button"%>
+<% end %>

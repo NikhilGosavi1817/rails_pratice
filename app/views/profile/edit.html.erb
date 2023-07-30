@@ -1,0 +1,49 @@
+<%= render "devise/shared/header" %>
+<br>
+<h2>Update personal data</h2>
+<% if current_user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(current_user.errors.count, 'error') %> prohibited this user from being saved:</h2>
+    <ul>
+      <% current_user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= form_with model: current_user, url: profile_path, method: :patch do |f| %>
+
+  <div class="field">
+    <%= f.text_field :first_name, autofocus: true, placeholder: "First Name" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :last_name, autofocus: true, placeholder: "Last Name"  %>
+  </div>
+
+  <div class="field">
+    <%= f.number_field :age, autofocus: true, placeholder: "Age"  %>
+  </div>
+
+  <div class="field">
+    <%= f.date_field :date_of_birth, autofocus: true, placeholder: "Date of birth"  %>
+  </div>
+
+  <div class="field"> 
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+  <%= link_to "Back to Home", root_path, class: "home-button"%>
+  <% if current_user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(current_user.errors.count, 'error') %> prohibited this user from being saved:</h2>
+    <ul>
+      <% current_user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<% end %>
