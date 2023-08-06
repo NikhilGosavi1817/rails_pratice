@@ -1,0 +1,51 @@
+<h4> List of books </h4>
+
+<table class="table">
+    <thead class="table">
+        <tr>
+            <th>
+                <%= link_to "Name", :sort => "name", direction: params[:sort]=="name" && params[:direction]=="asc" ? "desc" : "asc"%>
+            </th>
+            <th>
+                <%= link_to "Author Name", :sort => "author_name", direction: params[:sort]=="author_name" && params[:direction]=="asc" ? "desc" : "asc"%>
+            </th>
+            <th>
+                <%= link_to "Creation Date", :sort => "created_date", direction: params[:sort]=="created_date" && params[:direction]=="asc" ? "desc" : "asc"%>
+            </th>
+            <th>
+                <%= link_to "Likes", :sort => "likes", direction: params[:sort]=="likes" && params[:direction]=="asc" ? "desc" : "asc"%>
+            </th>
+            <th>
+                <%= link_to "Number of copies", :sort => "number_of_copies", direction: params[:sort]=="number_of_copies" && params[:direction]=="asc" ? "desc" : "asc"%>
+            </th>
+        </tr>
+        <% @book.each do |book| %>
+            <%user=User.where(:id=>book.user_id)%>
+            <tr>
+                <td>
+                    <%= link_to book.name, book_path(book)%>
+                </td>
+                <td>
+                    <%= user.first.first_name%>
+                    <%= user.first.last_name%>
+                </td>
+                <td>
+                    <%= (book.created_at).to_date%>
+                </td>
+                <td>
+                    <%= book.likes%>
+                </td>
+                <td>
+                    <%= book.number_of_copy%>
+                </td>
+                <td>
+                    <%= button_to 'Remove', book_path(book), method: :delete%>
+                </td>
+                <td>
+                    <%= button_to 'Archive', book_status_path(book), method: :patch%>
+                </td>
+            </tr>
+        <%end%>
+    </thead>
+</table>
+<%= will_paginate @book%>

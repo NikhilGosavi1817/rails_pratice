@@ -8,8 +8,18 @@
   <% end %>
   <%= link_to "Update Avatar", edit_avatar_path(current_user.id) %>
   <%= link_to "Update personal data", edit_profile_path(current_user.id) %>
+  <%= link_to "Create Book", new_book_path %>
+  <%if current_user.librarian?%>
+    <%= link_to "Student List", student_list_path %>
+    <%= link_to "Add Student", new_student_path %>
+    <%= link_to "Active Students", students_active_path %>
+    <%= link_to "Suspended Students", student_suspended_path %>
+    <%= link_to "List of books", book_list_path %>
+    <%end%>
+
 <% else %>
   <%= link_to "Sign up", new_user_registration_path %>
-  <%= button_to "Sign in", new_user_session_path %>
+  <%= link_to "Librarian login", new_user_session_path %>
+  <%= link_to "Student login", student_sign_in_path %>
 <%end%>
 <h1>Virat Kohli<!h1>

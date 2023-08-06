@@ -1,0 +1,31 @@
+<%= render "devise/shared/header" %>
+<br>
+<h2>Create Books</h2>
+<%= form_with model: @book do |f| %>
+    <% if @book.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@book.errors.count, 'error') %> prohibited this user from being saved:</h2>
+    <ul>
+      <% @book.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+  <div class="field">
+    <%= f.text_field :name, autofocus: true, placeholder: "Name" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :description, autofocus: true, placeholder: "Description"  %>
+  </div>
+
+  <div class="field">
+    <%= f.number_field :number_of_copy, autofocus: true, placeholder: "Number of copies"  %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+  <%= link_to "Back to Home", root_path, class: "home-button"%>
+<% end %>

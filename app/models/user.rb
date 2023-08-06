@@ -18,6 +18,25 @@ class User < ApplicationRecord
   end
 
   has_one_attached :avatar
+  has_many :books
+  enum role_type: {student: 2, librarian: 1}
+  enum status: {active: 1, suspended: 2}
+  include AASM
+  aasm column: 'status' do
+    state :active, initial:  true
+    state :suspended
+    
+    event :suspend do
+      transitions from: :active, to: :suspended
+    end
+
+    event :reactivate do
+      transitions from: :suspended, to: :active
+    end
+  end
+  # validates :avatar,  content_type: ['image/png', 'image/jpeg'],
+  # dimension: { width: { max:1600 }, height: { max:1200 }, message: 'does not fit dimensions' },
+  # size: { less_than: 10.megabytes , message: 'is too large' }
   # validate :avatar_content_type, :avatar_size, :avatar_dimension
 
   # private

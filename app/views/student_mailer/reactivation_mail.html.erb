@@ -1,0 +1,9 @@
+<h1>Welcome to RCB
+</h1>
+<p>Dear <%=@student.first_name%>
+</p>
+<p>Your account has been suspended.
+</p>
+<p>Click the link for Reactivation of your account
+</p>
+<strong> <%= link_to 'Reactivate Account', reactivate_student_url(@student) %> </strong>

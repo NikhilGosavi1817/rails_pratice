@@ -20,9 +20,11 @@ gem 'active_model_serializers', '~> 0.10.2'
 gem 'active_interaction'
 gem 'interactor-rails'
 gem 'active_storage_validations'
-gem 'fastimage'
 gem 'mini_magick'
-
+gem 'aasm', '~> 5.1', '>= 5.1.1'
+gem 'pry'
+gem 'will_paginate', '~> 4.0'
+gem "letter_opener", group: :development
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 

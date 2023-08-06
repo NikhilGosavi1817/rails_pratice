@@ -1,0 +1,35 @@
+<br>
+<h2>Create new student</h2>
+
+<%= form_for(@student, url: student_index_path) do |f| %>
+    <% if @student.errors.any? %>
+        <ul>
+        <% @student.errors.full_messages.each do |error| %>
+            <li><%= error %></li>
+        <% end %>
+        </ul>
+    <% end %>
+  <div class="field">
+    <%= f.text_field :first_name, autofocus: true, placeholder: "First Name" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :last_name, autofocus: true, placeholder: "Last Name"  %>
+  </div>
+
+  <div class="field">
+    <%= f.number_field :age, autofocus: true, placeholder: "Age"  %>
+  </div>
+
+  <div class="field">
+    <%= f.date_field :date_of_birth, autofocus: true, placeholder: "Date of birth"  %>
+  </div>
+
+  <div class="field"> 
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Create" %>
+  </div>
+<% end %>
