@@ -24,6 +24,11 @@
     <%= f.number_field :number_of_copy, autofocus: true, placeholder: "Number of copies"  %>
   </div>
 
+  <div class="field">
+  <%= f.label :tag_ids %>
+  <%= f.collection_select :tag_ids, Tag.all, :id, :name, {}, multiple: true %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>

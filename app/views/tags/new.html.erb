@@ -1,0 +1,8 @@
+<h1>Create Tag</h1>
+
+<%= form_with(model: @tag, url: tags_path, method: :post) do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.submit "Create Tag" %>
+<% end %>

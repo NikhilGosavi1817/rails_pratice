@@ -1,0 +1,30 @@
+<h1>List of Tags</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Creation Date</th>
+      <th>Last Update Date</th>
+      <th>Number of Books</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tags.each do |tag| %>
+      <tr>
+        <td><%= tag.id %></td>
+        <td><%= tag.name %></td>
+        <td><%= tag.created_at %></td>
+        <td><%= tag.updated_at %></td>
+        <td><%= tag.books.count %></td>
+        <td>
+          <%= link_to "Delete", tag, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger', disabled: tag.books.any? %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @tags %>

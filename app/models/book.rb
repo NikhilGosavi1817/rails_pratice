@@ -11,4 +11,7 @@ class Book < ApplicationRecord
     validates :name, presence: true
     validates :description, presence: true
     validates :number_of_copy, presence:  true
+
+    has_many :book_tags
+    has_many :tags, through: :book_tags
 end

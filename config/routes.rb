@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get 'student/:id/reactivate', to: 'student#reactivate', as: 'reactivate_student'
   get 'book_list', to: 'books#list'
   patch 'book/:id/status', to: 'books#archive', as: 'book_status'
+  resources :tags
   # get 'my_profile/update_personal_data', to: 'profile#update_personal_data', as: :update_personal_data
   # patch 'my_profile/update', to: 'profile#update', as: :update_profile
   # get 'user/avatar/edit', to: 'avatar#edit', as:'edit_user_avatar'
