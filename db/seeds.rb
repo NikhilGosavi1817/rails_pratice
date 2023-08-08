@@ -47,7 +47,7 @@ require Rails.root.join('lib/build/database_builder.rb')
 #     book.tags << tag if tag
 #   end
 # end
-# tags.destroy_all
+Tag.destroy_all
 tags = [
   "Fiction", "Science Fiction", "Mystery", "Fantasy",
   "Romance", "History", "Biography", "Self-Help",

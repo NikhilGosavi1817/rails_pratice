@@ -6,13 +6,14 @@ class BooksController < ApplicationController
     def create
         @book=current_user.books.new(book_params)
         if @book.save
+            @book.tag_ids=params[:book][:tag_ids]
             redirect_to root_path, notice: "Book created"
         else
             render :new
         end
     end
     def book_params
-        params.require(:book).permit(:name, :description, :number_of_copy)
+        params.require(:book).permit(:name, :description, :number_of_copy, tag_ids: [])
     end
 
     def list
