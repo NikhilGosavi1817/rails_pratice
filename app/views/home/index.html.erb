@@ -9,12 +9,12 @@
   <%= link_to "Update Avatar", edit_avatar_path(current_user.id) %>
   <%= link_to "Update personal data", edit_profile_path(current_user.id) %>
   <%= link_to "Create Book", new_book_path %>
+  <%= link_to "List of books", book_list_path %>
   <%if current_user.librarian?%>
     <%= link_to "Student List", student_list_path %>
     <%= link_to "Add Student", new_student_path %>
     <%= link_to "Active Students", students_active_path %>
     <%= link_to "Suspended Students", student_suspended_path %>
-    <%= link_to "List of books", book_list_path %>
     <%= link_to "tag", new_tag_path %>
     <%= link_to "list of tag", tags_path %>
     <%end%>

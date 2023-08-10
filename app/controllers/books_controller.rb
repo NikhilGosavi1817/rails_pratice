@@ -42,4 +42,12 @@ class BooksController < ApplicationController
         redirect_to book_path(@book), notice: 'Book was successfully archived.'
     end
 
+    def issue
+        @book = Book.find(params[:id])
+        if @book.available?
+            current_user.issued_books << @book
+            redirect_to book_path(@book), notice: "Book issued"
+        end
+    end
+
 end

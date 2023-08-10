@@ -14,4 +14,14 @@ class Book < ApplicationRecord
 
     has_many :book_tags
     has_many :tags, through: :book_tags
+
+    before_destroy :check_for_books
+    private
+
+    def check_for_books
+      return false if books.any?
+    end
+
+    has_many :book_users
+    has_many :students, through: :book_users, source: :user
 end

@@ -33,4 +33,4 @@
 <p>
   <%= @book.description %>
 </p>
-
+<%= button_to "Issue", book_issue_path(@book), method: :post%>

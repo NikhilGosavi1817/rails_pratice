@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get '/student/sign_in', to: 'users/sessions#new'
     post '/student/sign_in', to: 'users/sessions#create', as: 'new_student_session'
   end
-  # get 'home/index'
+  # get 'home/index' nikhil10@gmail.com  8aAfIBa0
   get '/home', to: 'home#index', as: 'home'
   root to: redirect('/home')
   namespace :api do
@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get 'book_list', to: 'books#list'
   patch 'book/:id/status', to: 'books#archive', as: 'book_status'
   resources :tags
+  post 'book/:id/issue', to: 'books#issue', as: 'book_issue'
   # get 'my_profile/update_personal_data', to: 'profile#update_personal_data', as: :update_personal_data
   # patch 'my_profile/update', to: 'profile#update', as: :update_profile
   # get 'user/avatar/edit', to: 'avatar#edit', as:'edit_user_avatar'
